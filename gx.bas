@@ -1,9 +1,13 @@
 extern "C"
-public sub screens(x as integer,y as integer,colors as integer)export 
-	screenres x,y,colors
+dim shared ccolers as integer=0
+public sub colors(c as integer)
+ccolers=c
 end sub
-public sub box(x as integer,y as integer,w as integer,h as integer,colors as integer)export 
-	line(x,y)-(x+w,y+h),7,bf
+public sub screens(x as integer,y as integer,colorss as integer)export 
+	screenres x,y,colorss
+end sub
+public sub box(x as integer,y as integer,w as integer,h as integer)export 
+	line(x,y)-(x+w,y+h),ccolers,bf
 end sub
 public sub scroff()
 	screen 3
